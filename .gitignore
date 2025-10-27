@@ -362,5 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-/Parallel Programming Project/Parallel Programming Project.vcxproj
-/Parallel Programming Project/Parallel Processing Project.vcxproj.filters
+*.vcxproj
+*.filters
