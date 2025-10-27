@@ -44,7 +44,7 @@ int main()
     alignas(32) int Bv[Bound];
     alignas(32) int Cv[Bound];
 
-    file << "third test with Vector and opt, time(in second): \n";
+    file << "third test with Vector and opt, time(in nanosecond): \n";
     for (int test = 0; test < 40; ++test) {
 
         for (int i = 0; i < Bound; ++i) {
@@ -70,7 +70,7 @@ int main()
         }
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end - start;
-        file << elapsed.count() << "\n";
+        file << elapsed.count() * Bound * Bound / 10 << "\n";
     }
     return 0;
 }
