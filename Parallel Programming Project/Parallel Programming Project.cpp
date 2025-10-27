@@ -16,7 +16,7 @@ int main()
 
     int Am[Bound];
     int Bm[Bound];
-    file << "First test with array, time(in seconds) :\n";
+    file << "First test with array, time(in nanoseconds) :\n";
     for (int i = 0; i < 40; i++)
     {
 
@@ -36,14 +36,14 @@ int main()
         }
         auto end = std::chrono::high_resolution_clock::now();
         chrono::duration<double> result = end - start;
-        file << result.count() << "\n";
+        file << result.count()*Bound*Bound/10 << "\n";
     }
     // NOW vector:
     alignas(32) int Av[Bound];
     alignas(32) int Bv[Bound];
     alignas(32) int Cv[Bound];
 
-    file << "second test with Vector, time(in second): \n";
+    file << "second test with Vector, time(in nanosecond): \n";
     for (int test = 0; test < 40; ++test) {
 
         for (int i = 0; i < Bound; ++i) {
@@ -69,7 +69,8 @@ int main()
         }
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end - start;
-        file << elapsed.count() << "\n";
+        file << elapsed.count() * Bound * Bound / 10 << "\n";
+        
     }    
     return 0;
 }
