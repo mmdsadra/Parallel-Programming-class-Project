@@ -5,14 +5,18 @@
 #include <fstream>
 #include <immintrin.h>
 
-#define Bound 10000
+#define Bound 100
+
+alignas(32) int Av[Bound];
+alignas(32) int Bv[Bound];
+alignas(32) int Cv[Bound];
 
 int main()
 {
 
     srand(time(NULL));
     using namespace std;
-    ofstream file("Data with flag.txt");
+    ofstream file("Data with flag 10^2 .txt");
     /*
     int Am[Bound];
     int Bm[Bound];
@@ -40,9 +44,7 @@ int main()
     }
     */
     // NOW vector:
-    alignas(32) int Av[Bound];
-    alignas(32) int Bv[Bound];
-    alignas(32) int Cv[Bound];
+
 
     file << "third test with Vector and opt, time(in nanosecond): \n";
     for (int test = 0; test < 40; ++test) {
@@ -70,7 +72,7 @@ int main()
         }
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end - start;
-        file << elapsed.count() * Bound * Bound / 10 << "\n";
+        file << elapsed.count() * 10e09 << "\n";
     }
     return 0;
 }
