@@ -5,7 +5,7 @@
 #include <fstream>
 #include <immintrin.h>
 
-#define Bound 100
+#define Bound 10000000
 
 int Am[Bound];
 int Bm[Bound];
@@ -20,11 +20,11 @@ int main()
  
     srand(time(NULL));
     using namespace std;
-    ofstream file("Data without flag 10^2.txt");
+    ofstream file("Data without flag 10^7.txt");
 
 
     file << "First test with array, time(in nanoseconds) :\n";
-    for (int i = 0; i < 40; i++)
+    for (int i = 0; i < 55; i++)
     {
 
 
@@ -49,7 +49,7 @@ int main()
 
 
     file << "second test with Vector, time(in nanosecond): \n";
-    for (int test = 0; test < 40; ++test) {
+    for (int test = 0; test < 55; ++test) {
 
         for (int i = 0; i < Bound; ++i) {
             Av[i] = rand() % 100;
