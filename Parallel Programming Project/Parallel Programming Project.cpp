@@ -5,17 +5,24 @@
 #include <fstream>
 #include <immintrin.h>
 
-#define Bound 10000
+#define Bound 100
+
+int Am[Bound];
+int Bm[Bound];
+int Cm[Bound];
+
+alignas(32) int Av[Bound];
+alignas(32) int Bv[Bound];
+alignas(32) int Cv[Bound];
 
 int main()
 {
  
     srand(time(NULL));
     using namespace std;
-    ofstream file("Data without flag.txt");
+    ofstream file("Data without flag 10^2.txt");
 
-    int Am[Bound];
-    int Bm[Bound];
+
     file << "First test with array, time(in nanoseconds) :\n";
     for (int i = 0; i < 40; i++)
     {
@@ -26,7 +33,7 @@ int main()
             Am[i] = rand() % 100;
             Bm[i] = rand() % 100;
         }
-        int Cm[Bound];
+
 
         //Classis Coding:
         auto start = std::chrono::high_resolution_clock::now();
@@ -39,9 +46,7 @@ int main()
         file << result.count()*Bound*Bound/10 << "\n";
     }
     // NOW vector:
-    alignas(32) int Av[Bound];
-    alignas(32) int Bv[Bound];
-    alignas(32) int Cv[Bound];
+
 
     file << "second test with Vector, time(in nanosecond): \n";
     for (int test = 0; test < 40; ++test) {
