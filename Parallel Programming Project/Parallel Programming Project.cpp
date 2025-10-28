@@ -5,7 +5,7 @@
 #include <fstream>
 #include <immintrin.h>
 
-#define Bound 10000000
+#define Bound 100
 
 int Am[Bound];
 int Bm[Bound];
@@ -20,7 +20,7 @@ int main()
  
     srand(time(NULL));
     using namespace std;
-    ofstream file("Data without flag 10^7.txt");
+    ofstream file("Data without flag 10^2.txt");
 
 
     file << "First test with array, time(in nanoseconds) :\n";
@@ -43,7 +43,7 @@ int main()
         }
         auto end = std::chrono::high_resolution_clock::now();
         chrono::duration<double> result = end - start;
-        file << result.count()*Bound*Bound/10 << "\n";
+        file << result.count()*10e09 << "\n";
     }
     // NOW vector:
 
@@ -74,7 +74,7 @@ int main()
         }
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end - start;
-        file << elapsed.count() * Bound * Bound / 10 << "\n";
+        file << elapsed.count() * 10e09 << "\n";
         
     }    
     return 0;
