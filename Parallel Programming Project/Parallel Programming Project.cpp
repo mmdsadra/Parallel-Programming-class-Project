@@ -5,7 +5,7 @@
 #include <fstream>
 #include <immintrin.h>
 
-#define Bound 100
+#define Bound 10000000
 
 alignas(32) int Av[Bound];
 alignas(32) int Bv[Bound];
@@ -16,7 +16,7 @@ int main()
 
     srand(time(NULL));
     using namespace std;
-    ofstream file("Data with flag 10^2 .txt");
+    ofstream file("Data with flag 10^7 .txt");
     /*
     int Am[Bound];
     int Bm[Bound];
@@ -47,7 +47,7 @@ int main()
 
 
     file << "third test with Vector and opt, time(in nanosecond): \n";
-    for (int test = 0; test < 40; ++test) {
+    for (int test = 0; test < 55; ++test) {
 
         for (int i = 0; i < Bound; ++i) {
             Av[i] = rand() % 100;
